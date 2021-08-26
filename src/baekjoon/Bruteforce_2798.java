@@ -16,12 +16,14 @@ public class Bruteforce_2798 {
 		int m = Integer.parseInt(token.nextToken());
 		int[] cards = new int[n];
 		
+		// 1) 카드 입력받기.
 		token = new StringTokenizer(br.readLine());
 		for(int i = 0; i < n; i++)
 		{
 			cards[i] = Integer.parseInt(token.nextToken());
 		}
 		
+		// 2) 카드가 겹치지 않게 3개의 카드를 선택했을 경우. m과 같거나 크다라면 그 중 가장 큰 수가 가장 m과 가까운 수가 된다.
 		int max = 0;
 		for(int x = 0; x < n; x++)
 		{
