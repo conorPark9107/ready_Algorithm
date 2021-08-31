@@ -15,6 +15,7 @@ public class DP_2839 {
 		int N = Integer.parseInt(br.readLine());
 	
 		System.out.println(dp(N));
+		System.out.println(dp2(N));
 		System.out.println(greedy(N));
 	}
 	
@@ -23,7 +24,7 @@ public class DP_2839 {
 		int answer = 0; 
 		while(N > 0) 
 		{
-			// 2) 5로 나누어 떨어질 경우 나눈다. 나눴을 때 몫은 봉지의 개수가 된다.
+			// 2) 5로 나누어 떨어질 경우 나눈다.
 			if(N % 5 == 0) 
 			{ 
 				answer += N / 5;
@@ -46,7 +47,7 @@ public class DP_2839 {
 		int[] dp = new int[N + 1];
 		dp[3] = 1;
 		
-		for (int i = 3; i <= N; i++) 
+		for (int i = 4; i <= N; i++) 
 		{
 			
 			if(i % 5 == 0)
@@ -59,10 +60,41 @@ public class DP_2839 {
 				dp[i] = dp[i-3] + 1;
 			}
 		}
+		// dp[N] = 0인 경우는 정확하게 N킬로그램 배달할 수 없다는 말이므로 -1을 return
+		return dp[N] == 0? -1 : dp[N];
+	}
+	
+	
+	private static int dp2(int N) {
+		
+		// 2) dp배열 생성, dp[i]일 때, i킬로그램의 설탕을 배달할 경우 최소봉지의 수.
+		int[] dp = new int[N + 1];
+		if(N >= 3) dp[3] = 1;
+		if(N >= 5) dp[5] = 1;
+
+		for (int i = 6; i <= N; i++) 
+		{
+			
+			if(i % 5 == 0)
+			{
+				// 3-1) 5의 배수인 경우 : dp[i-5] + 1
+				dp[i] = dp[i-5] + 1;
+			}else if(i % 3 == 0) 
+			{	
+				// 3-2) 3의 배수인 경우 : dp[i-3] + 1
+				dp[i] = dp[i-3] + 1;
+			}else 
+			{
+				// 4) 5와 3의 조합인 수일 경우 : ﻿dp[i] = min(dp[i-5], dp[i-3]) + 1
+				if(dp[i-5] != 0 && dp[i-3] != 0)
+				{
+					dp[i] = Math.min(dp[i-5], dp[i-3]) + 1;
+				}
+			}
+		}
 		
 		return dp[N] == 0? -1 : dp[N];
 	}
-
 	
 
 }
