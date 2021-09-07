@@ -9,27 +9,25 @@ import java.io.InputStreamReader;
 public class DP_9095 {
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		// 1) 테스트 케이스 입력받기.
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
 		
-		
-		// 2) 입력받는 n의 범위는 (0 < n < 11) 이므로 1 ~ 10까지의 dp 테이블 생성
+		// 1) 입력받는 n의 범위는 (0 < n < 11)
 		int[] dp = new int[11];
 		
-		// 3) 초기값 설정
+		// 2) 초기값 설정
 		dp[1] = 1;
 		dp[2] = 2;
 		dp[3] = 4;
 		
-		// 4) 점화식 dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
-		for(int i = 4; i < 11; i++)
+		// 3) 점화식 dp[n] = dp[n-1] + dp[n-2] + dp[ni-3]
+		for(int n = 4; n < 11; n++)
 		{
-			dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+			dp[n] = dp[n-1] + dp[n-2] + dp[n-3];
 		}
 		
-		// 5) testCase만큼 반복하며 결과 값 출력
+		// 4) testCase만큼 반복하며 결과 값 출력
 		for(int i=0; i<T; i++)
 		{
 			System.out.println(dp[Integer.parseInt(br.readLine())]);
