@@ -3,36 +3,30 @@ package basics;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+// 진법 변환 2
+// https://www.acmicpc.net/problem/11005
 public class backjoon_2745 {
+
+    static char[] charactors = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] strArr = br.readLine().split(" ");
 
-        String B = strArr[0];
+        int num = Integer.parseInt(strArr[0]);
         int N = Integer.parseInt(strArr[1]);
 
-        int result = 0;
-        for (int i = 0; i < B.length(); i++) {
-            char c = B.charAt(B.length() - 1 - i);
+        String result = "";
 
-            if (c > '9') {
-                c = (char) (c - 'A' + 10);
-            }else{
-                c = (char) (c - '0');
-            }
+        while(num > 0){
 
-            int avg = 1;
-            for(int j = 0; j < i; j++){
-                avg = avg * N;
-            }
-
-            result += avg * c;
-
+            result += charactors[num % N];
+            num /= N;
 
         }
 
-        System.out.println(result);
+        System.out.println(new StringBuffer(result).reverse());
     }
 
 }
