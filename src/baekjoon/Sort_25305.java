@@ -27,7 +27,7 @@ public class Sort_25305 {
 
     }
 
-    // 선택 정렬
+    // 선택 정렬로 구현.
     private static int[] selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int min = array[i];
