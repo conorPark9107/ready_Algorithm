@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 사각형 벗어나기.
 public class Backjoon_1085 {
 
     public static void main(String[] args) throws Exception{

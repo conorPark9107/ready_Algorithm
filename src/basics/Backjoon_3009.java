@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 사각형의 세 점이 주어졌을때 한 점 찾기.
 public class Backjoon_3009 {
 
     public static void main(String[] args) throws Exception{
