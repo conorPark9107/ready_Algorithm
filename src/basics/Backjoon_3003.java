@@ -3,8 +3,6 @@ package basics;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-// 킹, 퀸, 룩, 비숍, 나이트, 폰
-// https://www.acmicpc.net/problem/3003
 public class backjoon_3003 {
 
     public static void main(String[] args) throws Exception {
