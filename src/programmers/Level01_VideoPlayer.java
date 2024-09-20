@@ -49,6 +49,8 @@ public class Level01_VideoPlayer {
 
             switch (commnad) {
                 case "next" :
+
+                    // now가 length보다 크다면.
                     if(now.plusSeconds(10).isAfter(videoLength)){
                         now = videoLength;
                     }else{
@@ -57,8 +59,6 @@ public class Level01_VideoPlayer {
                     break;
 
                 case "prev" :
-//                    if(now.getMinute() == 0 && now.minusSeconds(10).isAfter(LocalTime.of(0, 0, 0))){
-
                     if(now.getMinute() == 0 && now.getSecond() < 10){
                         now = LocalTime.of(0, 0);
                     }else{
