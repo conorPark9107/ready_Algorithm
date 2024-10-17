@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 // 신나는 함수 실행
 // https://www.acmicpc.net/problem/9184
-public class baekjoon_9184 {
+public class Baekjoon_9184_notResolved {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,12 +22,21 @@ public class baekjoon_9184 {
 
             if(a == -1 && b == -1 && c == -1) break;
 
+//            int answer = wR(a, b, c);
             int answer = w(a, b, c);
             System.out.println(answer);
+
         }
     }
 
     private static int w(int a, int b, int c) {
+
+        return 0;
+    }
+
+
+
+    private static int wR(int a, int b, int c) {
         if (a <= 0 || b <= 0 || c <= 0) {
             return 1;
         }
