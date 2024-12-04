@@ -1,5 +1,7 @@
 package programmers;
 
+
+// 소수
 public class Level01_prime {
 
     public static void main(String[] args) {
