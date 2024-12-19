@@ -20,7 +20,7 @@ public class Level01_2022kakaoBlind {
         System.out.println("\n---------");
     }
 
-    // 정확성 75% 코드.
+    // 정확성 100% 코드.
     public static int[] solution(String[] id_list, String[] report, int k) {
         int[] answer = new int[id_list.length];
         HashMap<String, HashSet<String>> reportMap = new HashMap<>();
