@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 // 산책
 // https://school.programmers.co.kr/learn/courses/30/lessons/250129
-public class Level00_산책 {
+public class Level00_PCCE_산책 {
 
     public static void main(String[] args) {
         Arrays.stream(solution("NSSNEWWN")).forEach(System.out::print); //  [-1, 1]
