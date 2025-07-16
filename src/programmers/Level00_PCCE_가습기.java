@@ -28,7 +28,7 @@ public class Level00_PCCE_가습기 {
         else if (humidity >= 10)
             return 4;
         else
-            return 0;
+            return 5;
     }
 
     public static int func3(int humidity, int val_set){
@@ -44,11 +44,11 @@ public class Level00_PCCE_가습기 {
             answer = func2(humidity);
         }
         else if(mode_type.equals("target")){
-            answer = func1(humidity, val_set)
+            answer = func1(humidity, val_set);
             ;
         }
         else if(mode_type.equals("minimum")){
-            answer = func3(humidity, val_set)
+            answer = func3(humidity, val_set);
             ;
         }
 
