@@ -1,6 +1,10 @@
 package programmers;
 
 
+import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 // 주사위게임 3
 // https://school.programmers.co.kr/learn/courses/30/lessons/181916
 public class Level00_주사위게임3 {
@@ -15,14 +19,42 @@ public class Level00_주사위게임3 {
 
     public static int solution(int a, int b, int c, int d) {
         int answer = 0;
-        int[] arr = new int[7];
-        arr[a]++;
-        arr[b]++;
-        arr[c]++;
-        arr[d]++;
 
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(a, map.getOrDefault(a, 0) + 1);
+        map.put(b, map.getOrDefault(b, 0) + 1);
+        map.put(c, map.getOrDefault(c, 0) + 1);
+        map.put(d, map.getOrDefault(d, 0) + 1);
 
+        int size = map.size();
+        if(size == 4){
+            answer = map.keySet().stream()
+                    .min(Integer::compareTo)
+                    .get();
+        }else if(size == 1){
+            answer = 1111 * a;
+        }else if(size == 3){
+            answer = map.entrySet().stream()
+                    .filter(e -> e.getValue() == 1)
+                    .map(Map.Entry::getKey)
+                    .reduce(1, (x, y) -> x * y);
+        }else if(size == 2){
+            List<Integer> keys = new ArrayList<>(map.keySet());
+            int key1 = keys.get(0);
+            int key2 = keys.get(1);
+            int val1 = map.get(key1);
+            int val2 = map.get(key2);
 
+            if(val1 == 3 || val2 == 3){
+                int p = (val1 == 3)? key1 : key2;
+                int q = (val1 == 1)? key1 : key2;
+                answer = (int) Math.pow(10 * p + q, 2);
+            }else{
+                int p = key1;
+                int q = key2;
+                answer = (p + q) * Math.abs(p - q);
+            }
+        }
         return answer;
     }
 
