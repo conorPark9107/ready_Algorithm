@@ -9,10 +9,27 @@ public class Level00_접미사배열 {
 
     public static void main(String[] args) {
         String[] arr = solution("banana");
-        Arrays.stream(arr).forEach(s -> System.out.printf(s + " "));
+        Arrays.stream(arr).forEach(s -> System.out.printf(s + " ")); // "a", "ana", "anana", "banana", "na", "nana"
+
+        System.out.println();
+
+        arr = solution("programmers");
+        Arrays.stream(arr).forEach(s -> System.out.printf(s + " ")); // "ammers", "ers", "grammers", "mers", "mmers", "ogrammers", "programmers", "rammers", "rogrammers", "rs", "s"
     }
 
     public static String[] solution(String my_string) {
+        int len = my_string.length();
+        String[] arr = new String[len];
+
+        for (int i = 0; i < len; i++) {
+            arr[i] = my_string.substring(i);
+        }
+        Arrays.sort(arr);
+
+        return arr;
+    }
+
+    public static String[] solution02(String my_string) {
         int length = my_string.length();
         String[] answer = new String[length];
         char[] arr = my_string.toCharArray();
