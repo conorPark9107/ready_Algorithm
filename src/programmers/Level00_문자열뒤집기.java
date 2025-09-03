@@ -11,9 +11,11 @@ public class Level00_문자열뒤집기 {
 
     public static String solution(String my_string, int s, int e) {
         StringBuilder sb = new StringBuilder(my_string);
-        sb = sb.replace(s, e + 1, new StringBuilder(sb.substring(s, e + 1))
-                                     .reverse()
-                                     .toString());
+        String subStr = sb.substring(s, e + 1);
+        String change = new StringBuilder(subStr)
+                                  .reverse()
+                                  .toString();
+        sb.replace(s, e + 1, change);
         return sb.toString();
     }
 
