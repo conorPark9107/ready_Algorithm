@@ -1,5 +1,8 @@
 package programmers;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 // 글자 지우기
 // https://school.programmers.co.kr/learn/courses/30/lessons/181900
 public class Level00_글자지우기 {
@@ -10,6 +13,15 @@ public class Level00_글자지우기 {
     }
 
     public static String solution(String my_string, int[] indices) {
+        StringBuilder answer = new StringBuilder(my_string);
+        Arrays.sort(indices);
+        for (int i = indices.length - 1; i >= 0; i--) {
+            answer.deleteCharAt(indices[i]);
+        }
+        return answer.toString();
+    }
+
+    public static String solution02(String my_string, int[] indices) {
         StringBuilder answer = new StringBuilder(my_string);
         for (int i : indices) {
             answer.replace(i, i + 1, "0");
