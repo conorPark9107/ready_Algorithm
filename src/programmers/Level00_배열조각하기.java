@@ -13,6 +13,20 @@ public class Level00_배열조각하기 {
     }
 
     public static int[] solution(int[] arr, int[] query) {
+        int start = 0;
+        int end = arr.length - 1;
+        for (int i = 0; i < query.length; i++) {
+            if (i % 2 == 0) {
+                end = start + query[i] - 1;
+            } else {
+                start += query[i];
+            }
+        }
+
+        return Arrays.copyOfRange(arr, start, end + 2);
+    }
+
+    public static int[] solution02(int[] arr, int[] query) {
         ArrayDeque<Integer> deque = new ArrayDeque<>();
         Arrays.stream(arr).forEach(deque::add);
 
