@@ -12,27 +12,17 @@ public class Level00_조건에맞게수열변환2 {
     }
 
     public static int solution(int[] arr) {
-        int[] prev;
-        int count = -1;
-        boolean status = true;
-
-        while(status){
-            prev = Arrays.copyOf(arr, arr.length);
-
-            arr = Arrays.stream(arr)
+        int count = 0;
+        while(true){
+            int[] next = Arrays.stream(arr)
                   .map(n -> n >= 50 && n % 2 == 0 ? n / 2
                           : n < 50  && n % 2 == 1 ? n * 2 + 1
                           : n)
                   .toArray();
 
-            for (int i = 0; i < arr.length; i++) {
-                if(prev[i] != arr[i]){
-                    status = true;
-                    break;
-                }else{
-                    status = false;
-                }
-            }
+            if(Arrays.equals(arr, next)) break;
+
+            arr = next;
             count++;
         }
 
