@@ -15,7 +15,7 @@ public class Level00_X사이의개수 {
     }
 
     public static int[] solution(String myString) {
-        String[] strArr = myString.split("x");
+        String[] strArr = myString.split("x", -1);
         int[] answer = new int[strArr.length];
 
         for(int i = 0; i < strArr.length; i++){
