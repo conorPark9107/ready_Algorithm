@@ -30,6 +30,25 @@ public class Level00_배열원소자르기 {
                 }
             }
         }
+        int index = 0;
+        boolean status = false;
+        answer = new int[arr.length - count];
+        for (int i = 0; i < arr.length; i++) {
+            int x = arr[i];
+            for (int j = 0; j < delete_list.length; j++) {
+                int y = delete_list[j];
+                if(x == y) {
+                    status = false;
+                    break;
+                }else{
+                    status = true;
+                }
+            }
+            if (status) {
+                answer[index++] = x;
+            }
+
+        }
 
 
         return answer;
