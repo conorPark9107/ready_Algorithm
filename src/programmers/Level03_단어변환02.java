@@ -17,7 +17,7 @@ public class Level03_단어변환02 {
         ArrayDeque<String> q = new ArrayDeque<>();
         boolean[] visited = new boolean[words.length];
         q.offer(begin);
-        int cnt = 0;
+        int count = 0;
 
         while (!q.isEmpty()) {
             int size = q.size();
@@ -27,13 +27,13 @@ public class Level03_단어변환02 {
                 for (int j = 0; j < words.length; j++) {
                     String b = words[j];
                     if (!visited[j] && isDiff(a, b)) {
-                        if (b.equals(target)) return cnt + 1;
+                        if (b.equals(target)) return count + 1;
                         q.offer(b);
                         visited[j] = true;
                     }
                 }
             }
-            cnt++;
+            count++;
         }
         return 0;
     }
