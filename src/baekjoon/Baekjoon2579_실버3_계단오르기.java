@@ -25,12 +25,7 @@ public class Baekjoon2579_실버3_계단오르기 {
             int twoStep = dp[i - 2] + score[i];
             dp[i] = Math.max(oneStep, twoStep);
         }
-
         System.out.println(dp[n]);
-
-
     }
-
-
 }
 
